@@ -44,6 +44,7 @@ export class Div {
     }
     horizontalEvent() {
         this.buttonHorizontal.onclick = (e) => {
+            this.div.classList.add("cross");
             this.direction = "horizontal";
             var dash = document.createElement("div");
             this.dash = dash;
@@ -67,6 +68,7 @@ export class Div {
 
     verticalEvent() {
         this.buttonVertical.onclick = (e) => {
+            this.div.classList.add("cross");
             this.direction = "vertical";
             var dash = document.createElement("div");
             this.dash = dash;
