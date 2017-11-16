@@ -1,7 +1,7 @@
-import { Div } from './divloop'
+import { Divloop } from './divloop'
 
 
-window.Div = Div;
+window.Div = Divloop;
 
 
 
