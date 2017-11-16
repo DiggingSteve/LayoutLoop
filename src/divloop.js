@@ -10,7 +10,7 @@ export class Divloop {
         this.organizeDom(initFlag);
         this.horizontalEvent();
         this.verticalEvent();
-       // this.cancelEvent();
+       
         this.divConfirm();
     }
     // first init
@@ -21,7 +21,7 @@ export class Divloop {
         this.div.appendChild(this.btnHorizontal);
         this.div.appendChild(this.btnVertical);
         this.div.appendChild(this.btnCancel);
-        initFlag && document.body.appendChild(this.div);
+        initFlag || document.body.appendChild(this.div);
     }
 
     initDiv() {
@@ -135,7 +135,6 @@ export class Divloop {
         }
 
     }
-
     //***btn cancel bubble issue active the root parent but I  need the closest parent
     getParentDivObj(){
         if(this.hasChild) return this.getParentDivObj.apply(this.child1);
@@ -213,8 +212,8 @@ export class Divloop {
                     this.div2.style.cssFloat = "left";
                 }
                 this.isEditing = false;
-                var child1 = new Divloop(false);
-                var child2 = new Divloop(false);
+                var child1 = new Divloop(true);
+                var child2 = new Divloop(true);
                 this.child1=child1;
                 this.child2=child2;
                 child1.parent = this;

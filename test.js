@@ -1,2 +1,2 @@
-var a=new Div(true);
+var a=new Div();
 
