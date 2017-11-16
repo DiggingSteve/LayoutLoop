@@ -127,32 +127,27 @@ export class Divloop {
 
     cancelEvent(){
         this.btnCancel.onclick=(e)=>{
-            if (!this.hasChild) return  ;
-            this.child1.div.remove();
-            this.child2.div.remove();
-            this.div.appendChild(this.btnHorizontal);
-            this.div.appendChild(this.btnVertical);
-           // this.div.appendChild(this.btnCancel);
-            this.resetChild();
-            this.hasChild=false;
-            this.btnCancel.style.opacity=0;
+            console.log(this.div);
+            if(!!this.parent) this.parent.div.appendChild(this.parent.btnCancel);
+            this.resetChild.apply(this);
+            
             e.stopPropagation();
         }
-        this.btnCancel.onclick=(e)=>{
-            if (!this.hasChild) return  ;
-            this.child1.div.remove();
-            this.child2.div.remove();
-            this.div.appendChild(this.btnHorizontal);
-            this.div.appendChild(this.btnVertical);
-           // this.div.appendChild(this.btnCancel);
-           this.resetChild();
-            this.hasChild=false;
-            this.btnCancel.style.opacity=0;
-            e.stopPropagation();
-        }
+
+    }
+
+    //***btn cancel bubble issue active the root parent but I  need the closest parent
+    getParentDivObj(){
+        if(this.hasChild) return this.getParentDivObj.apply(this.child1);
+        else return this;
     }
 
     resetChild(){
+        if (!this.hasChild) return  ;
+        this.child1.div.remove();
+        this.child2.div.remove();
+        this.div.appendChild(this.btnHorizontal);
+        this.div.appendChild(this.btnVertical);
         this.border.classList.remove("border-v");
         this.border.classList.remove("border-h");
         this.div1.style.background="transparent";
@@ -161,6 +156,8 @@ export class Divloop {
         this.div2.style.width="100%";
         this.div1.style.height="100%";
         this.div2.style.height="100%";
+        this.hasChild=false;
+        this.btnCancel.style.opacity=0;
     }
 
     horizontalEvent() {
@@ -231,6 +228,7 @@ export class Divloop {
                 this.btnCancel.style.opacity="1";
                 this.cancelEvent();
             }
+           if(!!this.parent) this.parent.btnCancel.remove();
             this.borderDrag();
             e.stopPropagation();
         }
