@@ -41,6 +41,7 @@
         .child {
             width: 100%;
             height: 100%;
+          position: relative;
         }
 
         .buttonHorizontal {
@@ -72,6 +73,14 @@
         .cross{
             cursor:crosshair;
         }
+        .border-v{position: absolute; z-index: 999; right: 0; cursor:w-resize;height: 100%;width: 3px;background: #000;transition: all .5s;}
+        .border-v:hover{
+            background: #af2b2b;
+        }
+        .border-h:hover{
+            background: #ee05a0;
+        }
+        .border-h{position:absolute; z-index: 998; bottom: 0; cursor:n-resize;width: 100%;height:3px;background: #000;transition: all .5s;}
     </style>
 </head>
 
