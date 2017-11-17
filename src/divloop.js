@@ -225,9 +225,10 @@ export class Divloop {
                 
                 this.hasChild=true;
                 this.btnCancel.style.opacity="1";
+                if(!!this.parent) this.parent.btnCancel.remove();
                 this.cancelEvent();
             }
-           if(!!this.parent) this.parent.btnCancel.remove();
+          
             this.borderDrag();
             e.stopPropagation();
         }
