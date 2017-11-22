@@ -1,6 +1,6 @@
 import { fail } from "assert";
 
-export class Divloop {
+ class Divloop {
     constructor(initFlag) {
         this.direction = null;//vertical  or horizontal
         this.isEditing = false;
@@ -13,6 +13,7 @@ export class Divloop {
        
         this.divConfirm();
     }
+
     // first init
     organizeDom(initFlag) {
         this.div.appendChild(this.div1);
@@ -239,3 +240,5 @@ export class Divloop {
         }).join('');
     }
 }
+
+export default Divloop;

@@ -1,8 +1,4 @@
-import { Divloop } from './divloop'
-
-
-window.Div = Divloop;
-
+module.exports = require('./divloop.js').default;
 
 
 
